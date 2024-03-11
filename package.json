@@ -1,0 +1,25 @@
+{
+  "name": "@vikhola/content-type",
+  "version": "1.0.0",
+  "description": "Plugin that adds support for HTTP Content-Type header.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikhola/content-type"
+  },
+  "homepage": "https://github.com/vikhola/content-type",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "vikhola",
+    "content-type"
+  ],
+  "author": "<sabaziosd@proton.me> (https://github.com/SabaziosD)",
+  "license": "MIT",
+  "types": "./index.d.ts"
+}
