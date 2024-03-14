@@ -2,7 +2,7 @@
 
 # About
 
-Basic HTTP content-type parser and serializer for HTTP servers.
+Plugin that parses HTTP Content-Type headers.
 
 # Installation
 
@@ -24,9 +24,9 @@ Or as commonJS module.
 const { ContentType } = require('@vikhola/content-type');
 ```
 
-## class: `ContentType`
+## class: ContentType
 
-The ContentType accepts an optional type and parameters that will be assigned to its instance.
+The ContentType accepts an optional `type` and `parameters` that will be assigned to its instance.
 
 ```js
 const contentType = new ContentType('text/html', { charset: 'utf-8', foo: 'bar' });
@@ -63,9 +63,7 @@ console.log(contentType.params);
 
 ### ContentType.from()
 
-The `ContentType.from()` static method takes an HTTP Content-Type header, parses it, and returns a ContentType instance with type and params.
-
-If the content type header is not a string or some parameters contain invalid characters, the ContentType instance will have an empty `type` property and an empty `params` object after initialization.
+The `contentType.from()` static method takes an HTTP Content-Type header, parses it, and returns a new ContentType instance with the type and params.
 
 ```js
 const contentType = ContentType.from('text/html; charset=utf-8; foo=bar')
@@ -74,6 +72,18 @@ const contentType = ContentType.from('text/html; charset=utf-8; foo=bar')
 console.log(contentType.type)
 
 // print: { charset: 'utf-8', foo: 'bar' }
+console.log(contentType.params)
+```
+
+If the content type header is not a string or some parameters contain invalid characters, the ContentType instance will have an empty `type` property and an empty `params` object after initialization.
+
+```js
+const contentType = ContentType.from('text/\nhtml; charset=utf-8; foo=bar')
+
+// print: ''
+console.log(contentType.type)
+
+// print: {}
 console.log(contentType.params)
 ```
 
